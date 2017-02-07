@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package posta;
-
+import java.text.*;
+import java.util.*;
 /**
  *
  * @author Tony
@@ -13,6 +14,8 @@ public class Store {
     private String name;
     private String address;
     public ProductCatalog pc;
+    public DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    public Date date = new Date();
     
     public Store(String name, String address){
         this.name = name;
@@ -23,6 +26,7 @@ public class Store {
         this.address = "100 Grove St.";
     }
     
+    public String getDate(){return dateFormat.format(date);}
     /**
      * @param args the command line arguments
      */
