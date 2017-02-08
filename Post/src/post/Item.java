@@ -17,4 +17,9 @@ public class Item {
     public Item(String upc){
         this.upc = upc;
     }
+    public Item(String upc, float price, String description){
+        this.upc = upc;
+        this.price = price;
+        this.description = description;
+    }
 }

@@ -16,6 +16,8 @@ public class Post {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        ProductReader pr = new ProductReader();
+        pr.readFile("product_test1.txt");
     }
     
 }
