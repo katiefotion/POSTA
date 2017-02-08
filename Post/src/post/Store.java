@@ -21,4 +21,8 @@ public class Store {
     }
     
     public String getDate(){return dateFormat.format(date);}
+    
+    public void setItems(ArrayList<Item> si){
+        storeItems = si;
+    }
 }

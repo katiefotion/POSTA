@@ -18,6 +18,8 @@ public class Post {
         // TODO code application logic here
         ProductReader pr = new ProductReader();
         pr.readFile("product_test1.txt");
+        Store s = new Store("Walmart");
+        s.setItems(pr.readFile("product_test1.txt"));
     }
     
 }
