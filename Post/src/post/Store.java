@@ -14,6 +14,7 @@ public class Store {
     public String name;
     public DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     public Date date = new Date();
+    public ArrayList<Item> storeItems;
     
     public Store(String name){
         this.name = name;

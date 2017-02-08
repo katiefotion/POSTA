@@ -6,6 +6,7 @@
 package post;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.Scanner;
 
@@ -15,26 +16,28 @@ import java.util.Scanner;
  */
 public class ProductReader {
     private Scanner x;
-    public void readFile(String productFile){
+    public ArrayList<Item> readFile(String productFile){
+        ArrayList<Item> items = new ArrayList<Item>();
         try{
             x = new Scanner(new File(productFile));
-            System.out.println("File identified");
+            //System.out.println("File identified");
             while(x.hasNext()){
                 String line = x.nextLine();
-                
                 String upc = line.substring(0, 4);
-                
                 String description = line.substring(10, 29);
+                float price = Float.valueOf(line.substring(35));
+                //System.out.println(price);
                 
-                int price = Integer.parseInt(line.substring(35));
-                
-                
-                System.out.println(upc + " " + description + " " + price + " ");
+                //System.out.println(upc + " " + description + " " + price + " ");
+                Item item = new Item(upc, description, price);
+                items.add(item);
             }
             x.close();
+            
         }
         catch(Exception e){
             System.out.println("There was an error");
         }
+        return items;
     }
 }

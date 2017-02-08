@@ -17,7 +17,7 @@ public class Item {
     public Item(String upc){
         this.upc = upc;
     }
-    public Item(String upc, float price, String description){
+    public Item(String upc, String description, float price){
         this.upc = upc;
         this.price = price;
         this.description = description;
