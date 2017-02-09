@@ -22,6 +22,7 @@ public class TransactionReader {
             String name = "";
             String paymentType = "";
             float amount = 0;
+            Payment payment = new Payment(amount,paymentType);
             x = new Scanner(new File(transactionFile));
             if(x.hasNext()){
                 name = x.nextLine();
@@ -52,21 +53,21 @@ public class TransactionReader {
                     
                     
                     if(itemLine.startsWith("CASH")){
-                        paymentType = "cash";
-                        amount = Float.valueOf(itemLine.substring(6));
+                        payment.setPaymentType("CASH");
+                        payment.setAmount(Float.valueOf(itemLine.substring(6)));
                     }
                     else if(itemLine.startsWith("CREDIT")){
-                        paymentType = "credit";
+                        payment.setPaymentType("CASH");
                     }
                     else if(itemLine.startsWith("CHECK")){
-                        paymentType = "check";
+                        payment.setPaymentType("CASH");
                     }
                     //System.out.println(paymentType);
                     //System.out.println(amount);
                     
                 }
             }
-            transaction = new Transaction(customer,paymentType,store.getName(), store.getDate(), amount);
+            transaction = new Transaction(customer,store.getName(), store.getDate(), payment);
             x.close();
         }
         catch(Exception e){
