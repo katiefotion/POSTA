@@ -16,23 +16,22 @@ import java.util.Scanner;
 public class TransactionReader {
     private Scanner x;
     public void readFile(String transactionFile){
-        ArrayList<Item> items = new ArrayList<Item>();
         try{
             x = new Scanner(new File(transactionFile));
             if(x.hasNext()){
                 String customer = x.nextLine();
-                System.out.println(customer);
+                //System.out.println(customer);
             }
             while(x.hasNext()){
                 String itemLine = x.nextLine();
                 //System.out.println(itemLine);
                 if(!itemLine.startsWith("CASH") && !itemLine.startsWith("CREDIT") && !itemLine.startsWith("Check")){
                     String upc = itemLine.substring(0, 4);
-                    System.out.println(upc);
+                    //System.out.println(upc);
                     int quantity = 1;
                     if(itemLine.length() > 10)
                         quantity = Integer.parseInt(itemLine.substring(10));
-                    System.out.println(quantity);
+                    //System.out.println(quantity);
                 }
                 else{
                     String paymentType = "";
@@ -47,8 +46,8 @@ public class TransactionReader {
                     else if(itemLine.startsWith("CHECK")){
                         paymentType = "check";
                     }
-                    System.out.println(paymentType);
-                    System.out.println(amount);
+                    //System.out.println(paymentType);
+                    //System.out.println(amount);
                 }
             }
             x.close();
