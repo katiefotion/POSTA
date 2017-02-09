@@ -22,4 +22,7 @@ public class Item {
         this.price = price;
         this.description = description;
     }
+    public String toString(){
+        return upc + "  " + description + " $" + price; 
+    }
 }

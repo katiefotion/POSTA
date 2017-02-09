@@ -13,9 +13,13 @@ import java.util.*;
  */
 public class Customer {
     public String name;
-    public Vector<Item> items = new Vector<Item>();
-    
+    public Vector<Item> items;
+    public Customer(){
+        name = "";
+        items = new Vector<Item>();
+    }
     public Customer(String name){this.name = name;}    
+    
     
     public void addItem(Item item){items.add(item);}    
     

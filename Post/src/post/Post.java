@@ -21,7 +21,7 @@ public class Post {
         Store s = new Store("Walmart");
         s.setItems(pr.readFile("product_test1.txt"));
         TransactionReader tr = new TransactionReader();
-        tr.readFile("transaction_test1.txt");
+        System.out.println(tr.readFile("transaction_test1.txt", s).toString());
     }
     
 }
