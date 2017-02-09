@@ -22,6 +22,7 @@ public class TransactionReader {
             String name = "";
             String paymentType = "";
             float amount = 0;
+            float total = 0;
             Payment payment = new Payment(amount,paymentType);
             x = new Scanner(new File(transactionFile));
             if(x.hasNext()){
@@ -43,6 +44,7 @@ public class TransactionReader {
                         for(int j = 0; j <store.storeItems.size(); j++ ){
                             if(store.storeItems.get(j).upc.equals(upc)){
                                 customer.addItem(store.storeItems.get(j));
+                                total += store.storeItems.get(j).price;
                             }
                         }
 
@@ -58,9 +60,11 @@ public class TransactionReader {
                     }
                     else if(itemLine.startsWith("CREDIT")){
                         payment.setPaymentType("CASH");
+                        payment.setAmount(total);
                     }
                     else if(itemLine.startsWith("CHECK")){
                         payment.setPaymentType("CASH");
+                        payment.setAmount(Float.valueOf(itemLine.substring(6)));
                     }
                     //System.out.println(paymentType);
                     //System.out.println(amount);
